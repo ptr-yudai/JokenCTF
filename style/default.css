@@ -13,6 +13,7 @@ a:link, a:visited {
 body {
     --theme-blue: #87cefa;
     --theme-black: #0f0f0f;
+    --theme-gray: #afafaf;
     --theme-green: #6bbf3f;
     --theme-yellow: #f0f060;
     --theme-red: #cc0000;
@@ -129,6 +130,7 @@ table.ranking {
 }
 table.ranking td {
     border: 1px solid var(--theme-blue);
+    color: var(--theme-blue);
     text-align: right;
 }
 table.ranking td img {

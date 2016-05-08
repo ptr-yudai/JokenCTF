@@ -153,6 +153,16 @@ class CTFAuth
 	if (empty($_POST['type'])) return;
 	if ($_POST['type'] !== "signup") return;
 	if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['password_confirm'])) return;
+	// ユーザー名とパスワードの長さを確認
+	if (strlen($_POST['username']) >= 64) {
+	    $this->fatal_error('signup', "ユーザー名は64文字未満に設定してください。", false);
+	    return;
+	}
+	if (strlen($_POST['password']) >= 128) {
+	    $this->fatal_error('signup', "パスワードは128文字未満に設定してください。", false);
+	    return;
+	}
+
 	// ユーザー名が使用できるかを確認
 	if ($this->user_exist($_POST['username'])) {
 	    $this->fatal_error('signup', "このユーザー名は既に存在します。", false);

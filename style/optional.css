@@ -3,15 +3,24 @@
 }
 
 .border-blue {
-    border: 1px solid var(--theme-blue);
-    border-style: dashed;
+    border: 1px dashed var(--theme-blue);
     padding: 8px;
 }
 
 .border-red {
-    border: 1px solid var(--theme-red);
-    border-style: dashed;
+    border: 1px dashed var(--theme-red);
     padding: 8px;
+}
+
+.border-white {
+    background-color: var(--theme-gray);
+    color: var(--theme-black);
+    border: double 3px var(--theme-black);
+    margin: 8px;
+    padding: 8px;
+}
+.border-white p {
+    color: var(--theme-black);
 }
 
 .label-upload {

@@ -48,7 +48,7 @@ class CTFProb
 	    $this->prob_note = $result['note'];
 	    $this->prob_category = $result['category'];
 	    $this->prob_score = $result['score'];
-	    $this->prob_solved = $result['solved'];
+	    $this->prob_solved = (int)$result['solved'];
 	    return true;
 	}
 	return false;
