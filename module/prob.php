@@ -145,12 +145,18 @@ class CTFProb
 	    print("<p>以下の問題が公開されています。</p>");
 	    print("<table class=\"problem\">");
 	    print("<tr>");
+	    print("<th></th>");
 	    print("<th>題名</th>");
 	    print("<th>点数</th>");
 	    print("<th>解答数</th>");
 	    print("</tr>");
 	    while($result = $statement->fetch()) {
 		print("<tr>");
+		if ($this->check_solved($_SESSION['username'], $result['id'])) {
+		    print("<td><p class=\"success\">&#10003;</p></td>");
+		} else {
+		    print("<td><p class=\"warning\">&#10008;</p></td>");
+		}
 		print("<td><a href=\"/problem/view.php?id=".$result['id'].
 		      "\" target=\"_blank\">".$result['title']."</a></td>");
 		print("<td>".$result['score']."</td>");

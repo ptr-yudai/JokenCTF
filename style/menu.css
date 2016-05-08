@@ -28,5 +28,14 @@
     color: var(--theme-black);
     cursor: pointer;
     display: block;
+    transition: all 0.5s ease;
     padding: 10px;
+}
+
+.accordion label:hover {
+    background-color: var(--theme-yellow);
+}
+
+.accordion label:hover + input + .content{
+    border-color: var(--theme-yellow);
 }
