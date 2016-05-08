@@ -46,6 +46,16 @@ h2 {
     padding: 4px;
 }
 
+h3 {
+    border-top: 1px solid var(--theme-blue);
+    border-bottom: 1px solid var(--theme-blue);
+    color: var(--theme-blue);
+    font-size: 20px;
+    font-weight: normal;
+    margin: 8px;
+    padding-left: 8px;
+}
+
 h2.warning {
     background: repeating-linear-gradient(
 	135deg,
@@ -171,4 +181,8 @@ nav ul li {
 p {
     color: var(--theme-blue);
     margin: 0;
+}
+
+ul li {
+    color: var(--theme-blue);
 }
