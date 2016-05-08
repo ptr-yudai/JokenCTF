@@ -99,6 +99,29 @@ nav {
     width: 100%;
 }
 
+table.problem {
+    border: 1px solid var(--theme-blue);
+    font-size: 18px;
+    margin: 8px auto;
+}
+table.problem td {
+    border: 1px solid var(--theme-blue);
+    text-align: center;
+}
+table.problem td img {
+    width: 18px;
+    height: 18px;
+}
+table.problem th {
+    background-color: var(--theme-blue);
+    border: 1px solid var(--theme-blue);
+    color: var(--theme-black);
+}
+table.problem th:nth-child(1) { width: 320px; }
+table.problem th:nth-child(2) { width: 64px; }
+table.problem th:nth-child(3) { width: 64px; }
+
+
 table.ranking {
     border: 1px solid var(--theme-blue);
     font-size: 20px;

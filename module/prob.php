@@ -23,13 +23,28 @@ class CTFProb
 	}
 	
 	// ジャンルから問題を選択すう
-	$statement = $this->pdo->prepare('SELECT id FROM problem WHERE category=:category;');
+	$statement = $this->pdo->prepare('SELECT title,score,solved FROM problem WHERE category=:category;');
 	$statement->bindParam(':category', $category, PDO::PARAM_STR);
 	$statement->execute();
 
 	// 問題が見つかった
 	if ($statement->rowCount() > 0) {
 	    // 問題がある
+	    print("<p>以下の問題が公開されています。</p>");
+	    print("<table class=\"problem\">");
+	    print("<tr>");
+	    print("<th>題名</th>");
+	    print("<th>点数</th>");
+	    print("<th>解答数</th>");
+	    print("</tr>");
+	    while($result = $statement->fetch()) {
+		print("<tr>");
+		print("<td>".$result['title']."</td>");
+		print("<td>".$result['score']."</td>");
+		print("<td>".$result['solved']."</td>");
+		print("</tr>");
+	    }
+	    print("</table>");
 	} else {
 	    // 問題が無い
 	    print("<p>このジャンルの問題はまだありません。</p>");

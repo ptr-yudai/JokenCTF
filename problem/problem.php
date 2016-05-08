@@ -25,7 +25,7 @@ if (!$ctf->auth->check_login()) {
 	<div class="block">
 	    <h2>問題一覧</h2>
 	    <div class="border-blue">
-		<p>現在以下の問題が公開されいます。</p>
+		<p>問題のカテゴリをクリックして選択してください。</p>
 		<div class="accordion">
 		    <!-- NETWORK -->
 		    <label for="network">Network</label>

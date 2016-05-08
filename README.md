@@ -11,6 +11,8 @@ CTF(Capture The Flag)の参加者、問題、スコア等を管理するため�
 
 ## Requirement
 
+PHP5.xくらい
+
 ## Usage
 
 ## Install
