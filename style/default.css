@@ -1,0 +1,148 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'stencil';
+    src: url('/etc/font/stencil.ttf');
+}
+
+a:link, a:visited {
+    color: var(--theme-yellow);
+    text-decoration: none;
+}
+
+body {
+    --theme-blue: #87cefa;
+    --theme-black: #0f0f0f;
+    --theme-green: #6bbf3f;
+    --theme-yellow: #f0f060;
+    --theme-red: #cc0000;
+    --theme-white: #f0f0f0;
+    background-color: var(--theme-black);
+    color: var(--theme-white);
+    font-family: "Avenir Next", Verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック", "Yu Gothic", "メイリオ", Meiryo, Osaka, sans-serif;
+    font-size: 16px;
+}
+
+form {
+    margin: 16px;
+    text-align: center;
+}
+
+h1 {
+    color: var(--theme-white);
+    font-family: 'stencil', Impact;
+    font-size: 48px;
+    font-weight: normal;
+    margin: 0;
+}
+
+h2 {
+    background-color: var(--theme-blue);
+    color: var(--theme-black);
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0;
+    padding: 4px;
+}
+
+h2.warning {
+    background: repeating-linear-gradient(
+	135deg,
+	var(--theme-black),
+	var(--theme-black) 10px,
+	var(--theme-red) 10px,
+	var(--theme-red) 20px
+    );
+    color: var(--theme-yellow);
+}
+
+hr {
+    border: 2px solid var(--theme-blue);
+    border-style: dotted;
+    color: var(--theme-color);
+}
+
+input[type="submit"] {
+    background-color: var(--theme-black);
+    border: 1px solid var(--theme-blue);
+    color: var(--theme-blue);
+    cursor: pointer;
+    margin: 8px;
+}
+
+input[type="submit"].warning {
+    border: 1px solid var(--theme-red);
+    color: var(--theme-red);
+}
+
+input[type="text"], input[type="password"] {
+    background-color: var(--theme-black);
+    border: 1px solid var(--theme-blue);
+    color: var(--theme-blue);
+    height: 24px;
+    margin: 8px;
+    width: 256px;
+}
+
+input[type="password"].warning {
+    border: 1px solid var(--theme-red);
+    color: var(--theme-red);
+}
+
+label {
+    color: var(--theme-blue);
+}
+
+nav {
+    background-color: var(--theme-black);
+    height: 32px;
+    width: 100%;
+}
+
+table.ranking {
+    border: 1px solid var(--theme-blue);
+    font-size: 20px;
+    margin: 8px auto;
+}
+table.ranking td {
+    border: 1px solid var(--theme-blue);
+    text-align: right;
+}
+table.ranking td img {
+    width: 18px;
+    height: 18px;
+}
+table.ranking th {
+    background-color: var(--theme-blue);
+    border: 1px solid var(--theme-blue);
+    color: var(--theme-black);
+}
+table.ranking th:nth-child(1) { width: 64px; }
+table.ranking th:nth-child(2) { width: 256px; }
+table.ranking th:nth-child(3) { width: 128px; }
+
+nav ul {
+    border-left: 1px solid var(--theme-blue);
+    height: 32px;
+    list-style-type: none;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+}
+nav ul li {
+    color: var(--theme-blue);
+    border: 1px solid var(--theme-blue);
+    border-left: 0;
+    float: left;
+    font-size: 20px;
+    height: 30px;
+    margin: 0;
+    text-align: center;
+    width: 128px;
+}
+
+p {
+    color: var(--theme-blue);
+    margin: 0;
+}

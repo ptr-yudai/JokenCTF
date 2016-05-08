@@ -1,0 +1,32 @@
+.accordion {
+    min-width: 90%;
+    margin: 8px auto;
+    padding: 10px;
+}
+
+.accordion .content {
+    border: double 3px var(--theme-blue);
+    height: 0;
+    margin: -4px 1px 8px 1px;
+    overflow: hidden;
+    transition: 0.5s ease;
+    padding: 0 10px;
+}
+
+.accordion input {
+    display: none;
+}
+
+.accordion input:checked + .content {
+    height: auto;
+    padding: 10px;
+}
+
+.accordion label {
+    background-color: var(--theme-blue);
+    border: 1px solid var(--theme-black);
+    color: var(--theme-black);
+    cursor: pointer;
+    display: block;
+    padding: 10px;
+}

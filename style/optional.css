@@ -1,0 +1,80 @@
+.block {
+    margin: 16px;
+}
+
+.border-blue {
+    border: 1px solid var(--theme-blue);
+    border-style: dashed;
+    padding: 8px;
+}
+
+.border-red {
+    border: 1px solid var(--theme-red);
+    border-style: dashed;
+    padding: 8px;
+}
+
+.label-upload {
+    border: 1px solid var(--theme-blue);
+    cursor: pointer;
+    padding: 4px;
+}
+.label-upload input[type="file"] {
+    display: none;
+}
+
+.profile {
+    border: double 3px var(--theme-blue);
+    float: left;
+    margin: 8px;
+}
+.profile .image {
+    border: 0;
+    clear: both;
+    height: 160px;
+    position: relative;
+    text-align: center;
+}
+.profile .image img {
+    height: 160px;
+    width: 160px;
+}
+.profile .score {
+    background-color: var(--theme-blue);
+    border-bottom: 1px solid var(--theme-blue);
+    color: var(--theme-black);
+    float: right;
+    font-family: 'stencil';
+    font-size: 48px;
+    height: 56px;
+    padding-right: 8px;
+    text-align: right;
+    width: 128px;
+}
+.profile .score-decoration {
+    background-color: var(--theme-black);
+    border-bottom: 1px solid var(--theme-blue);
+    color: var(--theme-white);
+    float: left;
+    font-family: 'stencil';
+    font-size: 48px;
+    height: 56px;
+    text-align: center;
+    width: 56px;
+}
+.profile .username {
+    background-color: var(--theme-blue);
+    color: black;
+    font-size: 18px;
+    left: 1px;
+    position: absolute;
+    top: 136px;
+}
+
+.success {
+    color: var(--theme-green);
+}
+
+.warning {
+    color: var(--theme-red);
+}
