@@ -31,7 +31,7 @@ class CTFUtil
 	}
 
 	// ユーザー一覧を取得する
-	$statement = $this->pdo->prepare('SELECT user,score,image,mime FROM account ORDER BY score ASC');
+	$statement = $this->pdo->prepare('SELECT user,score,image,mime FROM account ORDER BY score DESC;');
 	$ret = $statement->execute();
 	
 	// クエリに失敗

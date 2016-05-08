@@ -54,6 +54,7 @@ CREATE TABLE problem(
     problem TEXT NOT NULL,
     hint TEXT NOT NULL,
     note TEXT NOT NULL,
+    flag CHAR(64) NOT NULL,
     score INT NOT NULL,
     category CHAR(64) NOT NULL,
     solved INT NOT NULL,

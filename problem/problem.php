@@ -27,17 +27,41 @@ if (!$ctf->auth->check_login()) {
 	    <div class="border-blue">
 		<p>問題のカテゴリをクリックして選択してください。</p>
 		<div class="accordion">
-		    <!-- NETWORK -->
-		    <label for="network">Network</label>
-		    <input id="network" type="checkbox">
+		    <!-- BINARY -->
+		    <label for="binary">Binary</label>
+		    <input id="binary" type="checkbox">
 		    <div class="content">
-			<?php $ctf->prob->display_problems('network'); ?>
+			<?php $ctf->prob->display_problems('binary'); ?>
+		    </div>
+		    <!-- EXPLOIT -->
+		    <label for="exploit">Exploit</label>
+		    <input id="exploit" type="checkbox">
+		    <div class="content">
+			<?php $ctf->prob->display_problems('exploit'); ?>
+		    </div>
+		    <!-- FORENSICS -->
+		    <label for="forensics">Forensics</label>
+		    <input id="forensics" type="checkbox">
+		    <div class="content">
+			<?php $ctf->prob->display_problems('forensics'); ?>
 		    </div>
 		    <!-- MISCELLANEOUS -->
 		    <label for="miscellaneous">Miscellaneous</label>
 		    <input id="miscellaneous" type="checkbox">
 		    <div class="content">
 			<?php $ctf->prob->display_problems('miscellaneous'); ?>
+		    </div>
+		    <!-- NETWORK -->
+		    <label for="network">Network</label>
+		    <input id="network" type="checkbox">
+		    <div class="content">
+			<?php $ctf->prob->display_problems('network'); ?>
+		    </div>
+		    <!-- WEB -->
+		    <label for="web">Web</label>
+		    <input id="web" type="checkbox">
+		    <div class="content">
+			<?php $ctf->prob->display_problems('web'); ?>
 		    </div>
 		</div>
 	    </div>

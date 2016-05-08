@@ -13,6 +13,8 @@ if (!$ctf->prob->get_problem()) {
     header("Location: /problem/problem.php");
 }
 
+// フラグをチェック
+$ctf->prob->post_flag();
 ?>
 <!DOCTYPE html>
 <html>
@@ -40,7 +42,10 @@ if (!$ctf->prob->get_problem()) {
 		    <?php if ($ctf->prob->prob_solved === 0) { ?>
 			<p>この問題はまだ誰にも解かれていません。</p>
 		    <?php } else { ?>
-			<p>この問題は<?php print($ctf->h("")); ?>が最後に解きました。</p>
+			<p>
+			    この問題は最後に<?php print(date("Y年m月d日H時i分s秒", strtotime($ctf->prob->prob_last_date))); ?>に
+			    <?php print($ctf->h($ctf->prob->prob_last_user)); ?>により解かれました。
+			</p>
 		    <?php } ?>
 		</div>
 	    </div>
@@ -50,8 +55,17 @@ if (!$ctf->prob->get_problem()) {
 	    <div class="border-blue">
 		<p>この問題のフラグは以下のフォームから送信してください。</p>
 		<form method="post">
-		    <input type="text" name="flag" placeholder="フラグ" required>
-		    <input type="submit" value="送信">
+		    <input type="text" name="flag" placeholder="フラグ" autocomplete="off" required>
+		    <input type="submit" value="送信"><br>
+		    <?php
+		    if ($ctf->prob->error_type === 'problem') {
+			if ($ctf->prob->error_flag) {
+			    print("<p class=\"success\">".$ctf->prob->error_msg."</p>");
+			} else {
+			    print("<p class=\"warning\">".$ctf->prob->error_msg."</p>");
+			}
+		    }
+		    ?>
 		</form>
 	    </div>
 	</div>
