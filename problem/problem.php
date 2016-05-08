@@ -4,7 +4,7 @@ require(dirname(__FILE__).'/../module/init.php');
 $ctf = new CTF();
 // ログイン状態を確認
 if (!$ctf->auth->check_login()) {
-    // ログイン済みであれば移動
+    // ログインしていなければ移動
     header("Location: /login/login.php");
 }
 
