@@ -1,5 +1,5 @@
 <?php
-//ini_set('display_errors', 1);
+ini_set('display_errors', 1);
 require(dirname(__FILE__).'/../module/init.php');
 $ctf = new CTF();
 // ログイン状態を確認

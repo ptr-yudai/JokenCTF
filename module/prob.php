@@ -1,5 +1,5 @@
 <?php
-class CTFAuth
+class CTFProb
 {
     /*
        初期化
@@ -32,6 +32,7 @@ class CTFAuth
 	    // 問題がある
 	} else {
 	    // 問題が無い
+	    print("<p>このジャンルの問題はまだありません。</p>");
 	}
     }
 

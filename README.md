@@ -63,7 +63,8 @@ CREATE TABLE problem(
 
 設定を/config/config.phpに記述し、PHPを動作できる環境に設置したら完了です。
 
-## Contribution
+## Screenshots
+
 
 ## Licence
 
