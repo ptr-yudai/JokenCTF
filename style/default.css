@@ -13,6 +13,7 @@ a:link, a:visited {
 body {
     --theme-blue: #87cefa;
     --theme-black: #0f0f0f;
+    --theme-dark: #1f1f1f;
     --theme-gray: #afafaf;
     --theme-green: #6bbf3f;
     --theme-yellow: #f0f060;
@@ -142,6 +143,7 @@ table.ranking {
 table.ranking td {
     border: 1px solid var(--theme-blue);
     color: var(--theme-blue);
+    padding: 0px 8px;
     text-align: right;
 }
 table.ranking td img {
@@ -154,8 +156,8 @@ table.ranking th {
     color: var(--theme-black);
 }
 table.ranking th:nth-child(1) { width: 64px; }
-table.ranking th:nth-child(2) { width: 256px; }
-table.ranking th:nth-child(3) { width: 128px; }
+/*table.ranking th:nth-child(2) { width: 256px; }*/
+table.ranking th:nth-child(3) { width: 96px; }
 
 nav ul {
     border-left: 1px solid var(--theme-blue);
@@ -175,7 +177,14 @@ nav ul li {
     height: 30px;
     margin: 0;
     text-align: center;
+    transition: all 0.3s ease;
     width: 128px;
+}
+nav ul li:hover {
+    background-color: var(--theme-dark);
+}
+nav ul li a {
+    display: block;
 }
 
 p {

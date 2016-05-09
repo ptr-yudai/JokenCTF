@@ -83,7 +83,7 @@ class CTFProb
 	// 現在の情報を更新する
 	$this->prob_last_user = $_SESSION['username'];
 	$this->prob_last_date = date('Y-m-d H:i:s');
-	$this->prob_solved = $this->prob_sovled + 1;
+	$this->prob_solved = $this->prob_solved + 1;
     }
     
     /*
