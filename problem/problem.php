@@ -28,10 +28,16 @@ if (!$ctf->auth->check_login()) {
 		<p>問題のカテゴリをクリックして選択してください。</p>
 		<div class="accordion">
 		    <!-- BINARY -->
-		    <label for="binary">Binary</label>
+		    <label for="binary">Binary (<?php print($ctf->prob->count_available_problems('binary')); ?>)</label>
 		    <input id="binary" type="checkbox">
 		    <div class="content">
 			<?php $ctf->prob->display_problems('binary'); ?>
+		    </div>
+		    <!-- CRYPTOGRAPHY -->
+		    <label for="cryptography">Cryptography (<?php print($ctf->prob->count_available_problems('cryptography')); ?>)</label>
+		    <input id="cryptography" type="checkbox">
+		    <div class="content">
+			<?php $ctf->prob->display_problems('cryptography'); ?>
 		    </div>
 		    <!-- EXPLOIT -->
 		    <label for="exploit">Exploit</label>
@@ -40,13 +46,13 @@ if (!$ctf->auth->check_login()) {
 			<?php $ctf->prob->display_problems('exploit'); ?>
 		    </div>
 		    <!-- FORENSICS -->
-		    <label for="forensics">Forensics</label>
+		    <label for="forensics">Forensics (<?php print($ctf->prob->count_available_problems('forensics')); ?>)</label>
 		    <input id="forensics" type="checkbox">
 		    <div class="content">
 			<?php $ctf->prob->display_problems('forensics'); ?>
 		    </div>
 		    <!-- MISCELLANEOUS -->
-		    <label for="miscellaneous">Miscellaneous</label>
+		    <label for="miscellaneous">Miscellaneous (<?php print($ctf->prob->count_available_problems('miscellaneous')); ?>)</label>
 		    <input id="miscellaneous" type="checkbox">
 		    <div class="content">
 			<?php $ctf->prob->display_problems('miscellaneous'); ?>

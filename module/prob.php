@@ -135,7 +135,7 @@ class CTFProb
 	}
 	
 	// ジャンルから問題を選択する
-	$statement = $this->pdo->prepare('SELECT id,title,score,solved FROM problem WHERE category=:category;');
+	$statement = $this->pdo->prepare('SELECT id,title,score,solved FROM problem WHERE category=:category ORDER BY score ASC;');
 	$statement->bindParam(':category', $category, PDO::PARAM_STR);
 	$statement->execute();
 
@@ -191,6 +191,31 @@ class CTFProb
 	}
 	return false;
     }
+
+    /*
+       指定されたジャンルの問題が何問あるかを調べる
+     */
+    function count_available_problems($category)
+    {
+	$count = 0;
+
+	// 解答済みの問題を選ぶ
+	$statement = $this->pdo->prepare('SELECT COUNT(id) FROM problem WHERE category=:category;');
+	$statement->bindParam(':category', $category, PDO::PARAM_STR);
+	$statement->execute();
+	
+	// 問題が見つかった
+	if ($statement->rowCount() > 0) {
+	    $result = $statement->fetch();
+	    // 数を取得
+	    $count = $result['COUNT(id)'];
+	}
+	return $count;
+    }
+
+    /*
+       
+     */
 
     /*
        エラーを設定する
