@@ -210,6 +210,42 @@ class CTFAuth
     }
 
     /*
+       アカウント削除を試行する
+     */
+    function delete_account()
+    {
+	// 正常な登録ポスト以外をフィルタリング
+	if (empty($_POST['type'])) return;
+	if ($_POST['type'] !== "del_me") return;
+	if (empty($_SESSION['username']) || empty($_POST['password'])) return;
+	
+	// アカウントを削除する
+	$statement = $this->pdo->prepare('SELECT id FROM account WHERE user=:user AND pass=:pass;');
+	$statement->bindParam(':user', $_SESSION['username'], PDO::PARAM_STR);
+	$statement->bindParam(':pass', md5($_POST['password']), PDO::PARAM_STR);
+	$statement->execute();
+
+	// ユーザーが見つかったか
+	if ($statement->rowCount() > 0) {
+	    // 削除する
+	    $result = $statement->fetch();
+	    $statement = $this->pdo->prepare('DELETE FROM account WHERE id=:id;');
+	    $statement->bindValue(':id', (int)$result['id'], PDO::PARAM_INT);
+	    $statement->execute();
+	    // ログアウト
+	    $_SESSION['login'] = false;
+	    session_destroy();
+	    // クッキーを削除する
+	    if (isset($_COOKIE["PHPSESSID"])) {
+		setcookie('PHPSESSID', '', time() - 1800, '/');
+	    }
+	} else {
+	    // アカウント削除に失敗
+	    $this->fatal_error('del_me', "パスワードが間違っています。", false);
+	}
+    }
+
+    /*
        指定したユーザーが存在するかを確認する
      */
     function user_exist($username)

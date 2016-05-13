@@ -39,12 +39,6 @@ if (!$ctf->auth->check_login()) {
 		    <div class="content">
 			<?php $ctf->prob->display_problems('cryptography'); ?>
 		    </div>
-		    <!-- EXPLOIT -->
-		    <label for="exploit">Exploit</label>
-		    <input id="exploit" type="checkbox">
-		    <div class="content">
-			<?php $ctf->prob->display_problems('exploit'); ?>
-		    </div>
 		    <!-- FORENSICS -->
 		    <label for="forensics">Forensics (<?php print($ctf->prob->count_available_problems('forensics')); ?>)</label>
 		    <input id="forensics" type="checkbox">
@@ -58,16 +52,10 @@ if (!$ctf->auth->check_login()) {
 			<?php $ctf->prob->display_problems('miscellaneous'); ?>
 		    </div>
 		    <!-- NETWORK -->
-		    <label for="network">Network</label>
+		    <label for="network">Network (<?php print($ctf->prob->count_available_problems('network')); ?>)</label>
 		    <input id="network" type="checkbox">
 		    <div class="content">
 			<?php $ctf->prob->display_problems('network'); ?>
-		    </div>
-		    <!-- WEB -->
-		    <label for="web">Web</label>
-		    <input id="web" type="checkbox">
-		    <div class="content">
-			<?php $ctf->prob->display_problems('web'); ?>
 		    </div>
 		</div>
 	    </div>

@@ -4,6 +4,8 @@ require(dirname(__FILE__).'/../module/init.php');
 $ctf = new CTF();
 // ログアウト試行
 $ctf->auth->logout();
+// アカウント削除試行
+$ctf->auth->delete_account();
 
 // ログイン状態を確認
 if (!$ctf->auth->check_login()) {
@@ -75,6 +77,13 @@ $ctf->auth->modify_account();
 		<form method="post">
 		    <input type="hidden" name="type" value="del_me">
 		    <input type="password" name="password" placeholder="パスワード" class="warning" required><br>
+		    <?php
+		    if ($ctf->auth->error_type === 'del_me') {
+			if (!$ctf->auth->error_flag) {
+			    print("<p class=\"warning\">".$ctf->auth->error_msg."</p>");
+			}
+		    }
+		    ?>
 		    <input type="submit" value="アカウント削除" class="warning">
 		</form>
 	    </div>
