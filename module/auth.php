@@ -75,7 +75,7 @@ class CTFAuth
 	    $this->fatal_error('config', "有効な画像ファイルを指定してください。", false);
 	    return;
         }
-        if (!in_array($info[2], [IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG], true)) {
+        if (!in_array($info[2], array(IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG), true)) {
 	    $this->fatal_error('config', "未対応の形式です。", false);
 	    return;
         }
@@ -162,6 +162,12 @@ class CTFAuth
 	    $this->fatal_error('signup', "パスワードは128文字未満に設定してください。", false);
 	    return;
 	}
+	
+	// データベースに接続できていない
+	if ($this->pdo === null) {
+	    $this->fatal_error('signup', "データベースに接続できません。", false);
+	    return;
+	}
 
 	// ユーザー名が使用できるかを確認
 	if ($this->user_exist($_POST['username'])) {
@@ -172,12 +178,6 @@ class CTFAuth
 	// パスワードが正しいかを確認
 	if ($_POST['password'] !== $_POST['password_confirm']) {
 	    $this->fatal_error('signup', "パスワードが一致していません。", false);
-	    return;
-	}
-	
-	// データベースに接続できていない
-	if ($this->pdo === null) {
-	    $this->fatal_error('signup', "データベースに接続できません。", false);
 	    return;
 	}
 	

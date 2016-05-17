@@ -57,6 +57,12 @@ if (!$ctf->auth->check_login()) {
 		    <div class="content">
 			<?php $ctf->prob->display_problems('network'); ?>
 		    </div>
+		    <!-- WEB -->
+		    <label for="web">Web (<?php print($ctf->prob->count_available_problems('web')); ?>)</label>
+		    <input id="web" type="checkbox">
+		    <div class="content">
+			<?php $ctf->prob->display_problems('web'); ?>
+		    </div>
 		</div>
 	    </div>
 	</div>

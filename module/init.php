@@ -3,6 +3,7 @@ session_start();
 require(dirname(__FILE__).'/../config/config.php');
 require(dirname(__FILE__).'/auth.php');
 require(dirname(__FILE__).'/util.php');
+require(dirname(__FILE__).'/notify.php');
 require(dirname(__FILE__).'/prob.php');
 
 /* CTF総括クラス */
@@ -27,8 +28,10 @@ class CTF
 	$this->auth = new CTFAuth($this->pdo);
 	// 各種ユーティリティ
 	$this->util = new CTFUtil($this->pdo);
+	// 通知設定
+	$this->notify = new CTFNotify($this->config);
 	// 出題管理
-	$this->prob = new CTFProb($this->pdo);
+	$this->prob = new CTFProb($this->pdo, $this->notify);
     }
 
     /*

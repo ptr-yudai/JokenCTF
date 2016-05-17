@@ -24,6 +24,16 @@ class CTFConfig
 	$this->db_name = 'joken_ctf';          // データベース名
 	$this->db_username = 'ctf_master';     // アクセスするユーザー名
 	$this->db_password = 'debug_password'; // ユーザーのパスワード
+
+	/*
+	   Slack通知設定(使用しない場合はFalse)
+	 */
+	$this->notify_slack = false;    // 通知するか
+	$this->slack_webhook = ""; // WebhookのURL
+	$this->slack_channel = "#random";       // 投稿チャンネル
+	$this->slack_username = "bot";    // 投稿ユーザー名
+	// 投稿アイコン
+	$this->slack_icon = ":ghost:";
     }
 
     /*

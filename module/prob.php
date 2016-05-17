@@ -4,10 +4,12 @@ class CTFProb
     /*
        初期化
      */
-    function __construct($pdo)
+    function __construct($pdo, $notify)
     {
 	// データベース
 	$this->pdo = $pdo;
+	// 通知
+	$this->notify = $notify;
 	// エラー
 	$this->error_type = "";
 	$this->error_flag = false;
@@ -52,7 +54,7 @@ class CTFProb
 	    return;
 	}
 	// 正解
-	$this->fatal_error('problem', "送信されたフラグは正解です。".$this->prob_score."[pt]獲得しました。", true);
+	$this->fatal_error('problem', "送信されたフラグは正解です。".$this->prob_score."[pt]を獲得しました。", true);
 	
 	// 解答者のスコアを取得する
 	$statement = $this->pdo->prepare('SELECT score,solved FROM account WHERE user=:user;');
@@ -84,6 +86,14 @@ class CTFProb
 	$this->prob_last_user = $_SESSION['username'];
 	$this->prob_last_date = date('Y-m-d H:i:s');
 	$this->prob_solved = $this->prob_solved + 1;
+
+	// 通知を送る
+	$this->notify->notify("".$_SESSION['username']."が"
+			     .$this->prob_category."の「"
+			     .$this->prob_title."」を解答し、"
+			     .$this->prob_score."[pt]を獲得しました。\n現在の合計得点は"
+			     .((int)$result['score'] + $this->prob_score)."[pt]で"
+			     .$this->get_rank($_SESSION['username'])."位です。");
     }
     
     /*
@@ -214,8 +224,20 @@ class CTFProb
     }
 
     /*
-       
+       順位を取得する
      */
+    function get_rank($username)
+    {
+	// 順位を取得する
+	$statement = $this->pdo->prepare('SELECT (SELECT COUNT(*) FROM account AS b WHERE a.score < b.score) + 1 AS rank FROM account AS a WHERE user=:user ORDER BY a.score DESC;');
+	$statement->bindParam(':user', $username, PDO::PARAM_STR);
+	$statement->execute();
+	if ($statement->rowCount() <= 0) {
+	    return 0;
+	}
+	$result = $statement->fetch();
+	return $result['rank'];
+    }
 
     /*
        エラーを設定する
